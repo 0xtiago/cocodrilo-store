@@ -1,4 +1,4 @@
-namespace CocodriloStore.Mvc.Models;
+namespace CocodriloStore.Web.Models;
 
 public class ErrorViewModel
 {
