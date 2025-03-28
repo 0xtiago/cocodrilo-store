@@ -3,7 +3,13 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+
+#Horusec
+reports/
+
+
 # User-specific files
+.DS_Store
 *.rsuser
 *.suo
 *.user
@@ -82,8 +88,6 @@ StyleCopReport.xml
 *.pgc
 *.pgd
 *.rsp
-# but not Directory.Build.rsp, as it configures directory-level build defaults
-!Directory.Build.rsp
 *.sbr
 *.tlb
 *.tli
@@ -238,7 +242,7 @@ ClientBin/
 *.dbmdl
 *.dbproj.schemaview
 *.jfm
-*.pfx
+#*.pfx
 *.publishsettings
 orleans.codegen.cs
 
@@ -397,4 +401,6 @@ FodyWeavers.xsd
 *.msp
 
 # JetBrains Rider
-*.sln.iml
+.idea
+.idea/*
+*.sln.iml 
