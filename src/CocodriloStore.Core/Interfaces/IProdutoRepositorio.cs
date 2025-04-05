@@ -6,5 +6,5 @@ public interface IProdutoRepositorio : IRepositorio<Produto>
 {
     Task<IEnumerable<Produto>> ObterProdutosPorCategoriaAsync(Guid categoriaId);
     Task<IEnumerable<Produto>> ObterProdutosPorVendedorAsync(Guid vendedorId);
-    Task<Produto> ObterProdutoComCategoriaAsync(Guid id);
+    Task<Produto?> ObterProdutoComCategoriaAsync(Guid id);
 }
