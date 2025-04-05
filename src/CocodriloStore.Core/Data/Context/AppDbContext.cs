@@ -1,3 +1,4 @@
+using System.Reflection;
 using CocodriloStore.Core.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,30 +17,38 @@ public class AppDbContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             
-        // Configuração do Produto
-        modelBuilder.Entity<Produto>()
-            .HasOne(p => p.Categoria)
-            .WithMany(c => c.Produtos)
-            .HasForeignKey(p => p.CategoriaId);
-                
-        modelBuilder.Entity<Produto>()
-            .HasOne(p => p.Vendedor)
-            .WithMany(s => s.Produtos)
-            .HasForeignKey(p => p.VendedorId);
-                
-        modelBuilder.Entity<Produto>()
-            .Property(p => p.Preco)
-            .HasColumnType("decimal(18,2)");
-                
-        // Configurações adicionais
-        modelBuilder.Entity<Produto>()
-            .HasIndex(p => p.Nome);
-                
-        modelBuilder.Entity<Categoria>()
-            .HasIndex(c => c.Nome)
-            .IsUnique();
+        base.OnModelCreating(modelBuilder);
     }
+
+    
+    // protected override void OnModelCreating(ModelBuilder modelBuilder)
+    // {
+    //     base.OnModelCreating(modelBuilder);
+    //         
+    //     // Configuração do Produto
+    //     modelBuilder.Entity<Produto>()
+    //         .HasOne(p => p.Categoria)
+    //         .WithMany(c => c.Produtos)
+    //         .HasForeignKey(p => p.CategoriaId);
+    //             
+    //     modelBuilder.Entity<Produto>()
+    //         .HasOne(p => p.Vendedor)
+    //         .WithMany(s => s.Produtos)
+    //         .HasForeignKey(p => p.VendedorId);
+    //             
+    //     modelBuilder.Entity<Produto>()
+    //         .Property(p => p.Preco)
+    //         .HasColumnType("decimal(18,2)");
+    //             
+    //     // Configurações adicionais
+    //     modelBuilder.Entity<Produto>()
+    //         .HasIndex(p => p.Nome);
+    //             
+    //     modelBuilder.Entity<Categoria>()
+    //         .HasIndex(c => c.Nome)
+    //         .IsUnique();
+    // }
     
 }
