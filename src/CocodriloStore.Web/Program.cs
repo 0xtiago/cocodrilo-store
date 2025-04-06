@@ -25,6 +25,12 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     })
     .AddEntityFrameworkStores<AppDbContext>();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Conta/Login";  // <- redireciona para essa URL se não estiver logado
+    options.AccessDeniedPath = "/Conta/Login"; // ou uma página personalizada de acesso negado
+});
+
 builder.Services.AddScoped<VendedorService>();
 
 builder.Services.AddControllersWithViews();

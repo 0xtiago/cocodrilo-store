@@ -75,14 +75,19 @@ namespace CocodriloStore.Web.Controllers
 
             if (user != null)
             {
-                var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(
+                    user.UserName,
+                    model.Password,
+                    model.RememberMe,
+                    lockoutOnFailure: false);
+
                 if (result.Succeeded)
                 {
+                    // Redireciona para a URL original se existir, senão vai para a Home
                     return Redirect(returnUrl ?? "/");
                 }
             }
 
-            // Mensagem clara de erro
             ModelState.AddModelError(string.Empty, "E-mail ou senha inválidos.");
             return View(model);
         }
