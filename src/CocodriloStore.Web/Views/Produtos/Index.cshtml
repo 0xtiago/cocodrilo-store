@@ -1,0 +1,66 @@
+@model IEnumerable<CocodriloStore.Web.Models.Produto>
+@using Microsoft.AspNetCore.Identity
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<h2>Produtos</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <a asp-action="Create" class="btn btn-success mb-3">Novo Produto</a>
+}
+
+<form method="get" asp-action="Index" class="mb-4">
+    <div class="row g-2 align-items-end">
+        <div class="col-md-4">
+            <label for="categoriaId" class="form-label">Filtrar por categoria</label>
+            <select class="form-select" id="categoriaId" name="categoriaId">
+                <option value="">Todas as categorias</option>
+                @{
+                    foreach (var categoria in ViewBag.Categorias as List<CocodriloStore.Web.Models.Categoria>)
+                    {
+                        var selected = ViewBag.CategoriaSelecionada == categoria.Id ? "selected" : "";
+                        @Html.Raw($"<option value='{categoria.Id}' {selected}>{categoria.Nome}</option>")
+                    }
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-outline-primary">Filtrar</button>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    @foreach (var produto in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow">
+                @if (!string.IsNullOrEmpty(produto.ImagemUrl))
+                {
+                    <img src="@produto.ImagemUrl" class="card-img-top" alt="Imagem do Produto" style="object-fit: cover; height: 200px;" />
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@produto.Nome</h5>
+                    <p class="text-muted">@produto.Categoria?.Nome</p>
+                    <p class="card-text">@produto.Descricao</p>
+                    <p class="card-text fw-bold">R$ @produto.Preco.ToString("F2")</p>
+                    <p class="card-text">Estoque: @produto.Estoque</p>
+                    @if (!string.IsNullOrWhiteSpace(produto.Vendedor?.Nome))
+                    {
+                        <p class="card-text"><strong>Vendedor:</strong> @produto.Vendedor.Nome</p>
+                    }
+                    <a asp-action="Details" asp-route-id="@produto.Id" class="btn btn-sm btn-outline-info mt-2">Ver detalhes</a>
+                </div>
+                @if (User.Identity.IsAuthenticated && produto.VendedorId == User.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value)
+                {
+                    <div class="card-footer d-flex justify-content-between">
+                        <a asp-action="Edit" asp-route-id="@produto.Id" class="btn btn-sm btn-outline-primary">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@produto.Id" class="btn btn-sm btn-outline-danger">Excluir</a>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>

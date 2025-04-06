@@ -1,31 +1,25 @@
-using System.Diagnostics;
+using CocodriloStore.Web.Data;
 using Microsoft.AspNetCore.Mvc;
-using CocodriloStore.Web.Models;
-
-namespace CocodriloStore.Web.Controllers;
+using Microsoft.EntityFrameworkCore;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly AppDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(AppDbContext context)
     {
-        _logger = logger;
+        _context = context;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
-    }
+        var produtos = await _context.Produtos
+            .Include(p => p.Categoria)
+            .Include(p => p.Vendedor)
+            .OrderByDescending(p => p.Id)
+            .Take(6) // mostra os 6 mais recentes (opcional)
+            .ToListAsync();
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        return View(produtos);
     }
 }

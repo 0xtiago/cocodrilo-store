@@ -1,0 +1,26 @@
+@model CocodriloStore.Web.Models.Produto
+
+@{
+    ViewData["Title"] = "Detalhes do Produto";
+}
+
+<h2>Detalhes do Produto</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        @if (!string.IsNullOrEmpty(Model.ImagemUrl))
+        {
+            <img src="@Model.ImagemUrl" class="img-fluid rounded shadow" alt="Imagem do Produto" />
+        }
+    </div>
+    <div class="col-md-6">
+        <h3>@Model.Nome</h3>
+        <p><strong>Categoria:</strong> @Model.Categoria?.Nome</p>
+        <p>@Model.Descricao</p>
+        <p><strong>Preço:</strong> R$ @Model.Preco.ToString("F2")</p>
+        <p><strong>Estoque:</strong> @Model.Estoque</p>
+        <p><strong>Vendedor:</strong> @Model.Vendedor?.Nome</p>
+
+        <a asp-action="Index" class="btn btn-secondary mt-3">Voltar</a>
+    </div>
+</div>

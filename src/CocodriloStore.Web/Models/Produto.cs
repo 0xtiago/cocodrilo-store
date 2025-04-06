@@ -6,20 +6,20 @@ namespace CocodriloStore.Web.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O nome é obrigatório.")]
         public string Nome { get; set; }
 
-        public string Descricao { get; set; }
+        public string? Descricao { get; set; }
 
         [Required]
-        [Range(0, double.MaxValue)]
+        [Range(0, double.MaxValue, ErrorMessage = "O preço não pode ser negativo.")]
         public decimal Preco { get; set; }
 
         [Required]
-        [Range(0, int.MaxValue)]
+        [Range(0, int.MaxValue, ErrorMessage = "O estoque não pode ser negativo.")]
         public int Estoque { get; set; }
 
-        public string ImagemUrl { get; set; }
+        public string? ImagemUrl { get; set; }
 
         [Required]
         public int CategoriaId { get; set; }

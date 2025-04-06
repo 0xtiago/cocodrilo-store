@@ -1,0 +1,19 @@
+@model CocodriloStore.Web.Models.Produto
+
+@{
+    ViewData["Title"] = "Excluir Produto";
+}
+
+<h2>Excluir Produto</h2>
+
+<h4>Você tem certeza que deseja excluir este produto?</h4>
+
+<div class="mb-3">
+    <strong>@Model.Nome</strong> - R$@Model.Preco.ToString("F2")
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

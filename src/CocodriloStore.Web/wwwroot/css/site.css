@@ -20,3 +20,25 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.navbar a,
+.navbar .nav-link {
+  color: #fff !important;
+}
+
+.navbar .nav-link:hover {
+  text-decoration: underline;
+}
+
+body {
+  background-color: #f8f9fa; /* tom bem leve fora da área principal */
+}
+
+main {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+html, body {
+  overflow-x: hidden;
+}
