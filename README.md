@@ -5,7 +5,14 @@
 Bem-vindo ao repositório do projeto **Cocodrilo Store**. Este projeto é uma entrega do MBA DevXpert Full Stack .NET e é referente ao módulo **Introdução ao Desenvolvimento ASP.NET Core**.
 O objetivo principal desenvolver uma aplicação de e-commerce que permite aos usuários criar, editar, visualizar e excluir produtos e categorias, tanto através de uma interface web utilizando MVC quanto através de uma API RESTful.
 
+
+
+![image-20250406223733665](README.assets/image-20250406223733665.png)
+
+![image-20250406223801621](README.assets/image-20250406223801621.png)
+
 ### **Autor(es)**
+
 - Tiago da Silva Tavares
 
 ## **2. Proposta do Projeto**
