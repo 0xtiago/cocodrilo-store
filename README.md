@@ -66,20 +66,20 @@ A estrutura do projeto é organizada da seguinte forma:
 1. **Clone o Repositório:**
     - `git clone https://github.com/0xtiago/cocodrilo-store`
     - `cd cocodrilo-store`
-
 2. **Configuração do Banco de Dados:**
     - ~~No arquivo `appsettings.json`, configure a string de conexão do SQL Server.~~
     - ~~Rode o projeto para que a configuração do Seed crie o banco e popule com os dados básicos~~
-
 3. **Executar a Aplicação MVC:**
     - `cd src/CocodriloStore.Mvc/`
     - `dotnet run`
     - Acesse a aplicação em: http://localhost:5000
-
 4. **Executar a API:**
     - `cd src/CocodriloStore.Api/`
     - `dotnet run`
     - Acesse a documentação da API em: http://localhost:5001/swagger
+5. **Executar e parar tudo de forma automática**:
+    - `chmod +x start-cocodrilo.sh ; ./start-cocodrilo.sh`
+    - `chmod +x stop-cocodrilo.sh ; ./stop-cocodrilo.sh`
 
 ## **7. Instruções de Configuração**
 
