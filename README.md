@@ -1,22 +1,20 @@
-# **[Título do Projeto] - Aplicação de Blog Simples com MVC e API RESTful**
+# **Cocodrilo Store - Aplicação de E-Commerce com MVC e API RESTful**
 
 ## **1. Apresentação**
 
-Bem-vindo ao repositório do projeto **[Título do Projeto]**. Este projeto é uma entrega do MBA DevXpert Full Stack .NET e é referente ao módulo **Introdução ao Desenvolvimento ASP.NET Core**.
-O objetivo principal desenvolver uma aplicação de blog que permite aos usuários criar, editar, visualizar e excluir posts e comentários, tanto através de uma interface web utilizando MVC quanto através de uma API RESTful.
-Descreva livremente mais detalhes do seu projeto aqui.
+Bem-vindo ao repositório do projeto **Cocodrilo Store**. Este projeto é uma entrega do MBA DevXpert Full Stack .NET e é referente ao módulo **Introdução ao Desenvolvimento ASP.NET Core**.
+O objetivo principal desenvolver uma aplicação de e-commerce que permite aos usuários criar, editar, visualizar e excluir produtos e categorias, tanto através de uma interface web utilizando MVC quanto através de uma API RESTful.
 
 ### **Autor(es)**
-- **Nome 1**
-- **Nome 2**
+- Tiago da Silva Tavares
 
 ## **2. Proposta do Projeto**
 
 O projeto consiste em:
 
-- **Aplicação MVC:** Interface web para interação com o blog.
-- **API RESTful:** Exposição dos recursos do blog para integração com outras aplicações ou desenvolvimento de front-ends alternativos.
-- **Autenticação e Autorização:** Implementação de controle de acesso, diferenciando administradores e usuários comuns.
+- **Aplicação MVC:** Interface web para interação com o e-commerce.
+- **API RESTful:** Exposição dos recursos do e-commerce para integração com outras aplicações ou desenvolvimento de front-ends alternativos.
+- **Autenticação e Autorização:** Implementação de controle de acesso, diferenciando para os vendedores.
 - **Acesso a Dados:** Implementação de acesso ao banco de dados através de ORM.
 
 ## **3. Tecnologias Utilizadas**
@@ -26,14 +24,14 @@ O projeto consiste em:
     - ASP.NET Core MVC
     - ASP.NET Core Web API
     - Entity Framework Core
-- **Banco de Dados:** SQL Server
+- **Banco de Dados:** SQLite e SQL Server
 - **Autenticação e Autorização:**
     - ASP.NET Core Identity
     - JWT (JSON Web Token) para autenticação na API
 - **Front-end:**
     - Razor Pages/Views
     - HTML/CSS para estilização básica
-- **Documentação da API:** Swagger
+- **Documentação da API:** Swagger com autenticação por Bearer Token
 
 ## **4. Estrutura do Projeto**
 
@@ -41,17 +39,16 @@ A estrutura do projeto é organizada da seguinte forma:
 
 
 - src/
-    - Blog.Web/ - Projeto MVC
-    - Blog.Api/ - API RESTful
-    - Blog.Data/ - Modelos de Dados e Configuração do EF Core
+    - CocodriloStore.Web/ - Projeto MVC
+    - CocodriloStore.Api/ - API RESTful
 - README.md - Arquivo de Documentação do Projeto
 - FEEDBACK.md - Arquivo para Consolidação dos Feedbacks
 - .gitignore - Arquivo de Ignoração do Git
 
 ## **5. Funcionalidades Implementadas**
 
-- **CRUD para Posts e Comentários:** Permite criar, editar, visualizar e excluir posts e comentários.
-- **Autenticação e Autorização:** Diferenciação entre usuários comuns e administradores.
+- **CRUD para Produtos e Categorias:** Permite criar, editar, visualizar e excluir produtos e categorias.
+- **Autenticação e Autorização:** Diferenciação entre usuários anônimos e vendedores.
 - **API RESTful:** Exposição de endpoints para operações CRUD via API.
 - **Documentação da API:** Documentação automática dos endpoints da API utilizando Swagger.
 
@@ -67,20 +64,20 @@ A estrutura do projeto é organizada da seguinte forma:
 ### **Passos para Execução**
 
 1. **Clone o Repositório:**
-    - `git clone https://github.com/seu-usuario/nome-do-repositorio.git`
-    - `cd nome-do-repositorio`
+    - `git clone https://github.com/0xtiago/cocodrilo-store`
+    - `cd cocodrilo-store`
 
 2. **Configuração do Banco de Dados:**
-    - No arquivo `appsettings.json`, configure a string de conexão do SQL Server.
-    - Rode o projeto para que a configuração do Seed crie o banco e popule com os dados básicos
+    - ~~No arquivo `appsettings.json`, configure a string de conexão do SQL Server.~~
+    - ~~Rode o projeto para que a configuração do Seed crie o banco e popule com os dados básicos~~
 
 3. **Executar a Aplicação MVC:**
-    - `cd src/Blog.Mvc/`
+    - `cd src/CocodriloStore.Mvc/`
     - `dotnet run`
     - Acesse a aplicação em: http://localhost:5000
 
 4. **Executar a API:**
-    - `cd src/Blog.Api/`
+    - `cd src/CocodriloStore.Api/`
     - `dotnet run`
     - Acesse a documentação da API em: http://localhost:5001/swagger
 
