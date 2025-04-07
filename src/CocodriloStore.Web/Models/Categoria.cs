@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace CocodriloStore.Web.Models
 {
@@ -10,7 +11,7 @@ namespace CocodriloStore.Web.Models
         public string Nome { get; set; }
 
         public string Descricao { get; set; }
-
+        
         public List<Produto> Produtos { get; set; } = new();
     }
 }

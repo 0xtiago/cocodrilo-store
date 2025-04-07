@@ -22,7 +22,7 @@
                     <p><strong>R$</strong> @produto.Preco.ToString("F2")</p>
                     <p>Estoque: @produto.Estoque</p>
                     <p><strong>Vendedor:</strong> @produto.Vendedor?.Nome</p>
-                    <a asp-controller="Produtos" asp-action="Detalhes" asp-route-id="@produto.Id" class="btn btn-sm btn-outline-info mt-2">Ver detalhes</a>
+                    <a asp-controller="Produtos" asp-action="Details" asp-route-id="@produto.Id" class="btn btn-sm btn-outline-info mt-2">Ver detalhes</a>
                 </div>
             </div>
         </div>
